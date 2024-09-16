@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Muñequitos</title>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet"> <!-- Fuente Pacifico -->
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background-color: transparent; /* Fondo transparente */
+        }
+        iframe {
+            border: none; /* Sin bordes en el iframe */
+            width: 200px; /* Ajusta el tamaño a tu preferencia */
+            height: 200px;
+            pointer-events: none; /* Deshabilita clics en el iframe */
+        }
+        p {
+            font-size: 36px; /* Tamaño del texto */
+            font-family: 'Pacifico', cursive; /* Fuente Pacifico */
+            background: linear-gradient(to right, #8e44ad, #f1c40f); /* Gradiente de morado a amarillo */
+            -webkit-background-clip: text; /* Hace que el texto use el fondo */
+            -webkit-text-fill-color: transparent; /* Hace que el texto sea transparente */
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3); /* Sombra para que se vea más bonito */
+            margin-top: 20px; /* Espacio entre el GIF y el texto */
+            text-align: center; /* Alineación del texto */
+        }
+        .emoji {
+            font-size: 36px; /* Tamaño de los emojis */
+            color: inherit; /* Hereda el color del texto */
+            background: none; /* Sin fondo para los emojis */
+            -webkit-background-clip: none; /* Sin recorte de fondo para los emojis */
+            -webkit-text-fill-color: initial; /* Color inicial para los emojis */
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 20px; /* Espacio entre el texto y el botón */
+            background-color: #8e44ad; /* Color de fondo del botón */
+            color: #fff; /* Color del texto del botón */
+            border: none;
+            border-radius: 5px; /* Bordes redondeados del botón */
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Aquí se inserta el sticker de Tenor usando iframe -->
+    <iframe id="gif" src="https://tenor.com/embed/1790956462399038439" allowfullscreen></iframe>
+
+    <!-- Texto con diseño morado y amarillo -->
+    <p id="texto">Olaaaa mi niña <span class="emoji">💜😍</span></p>
+
+    <!-- Botón para cambiar el GIF y el texto -->
+    <button onclick="cambiarContenido()">Jijiji presioname</button>
+
+    <script>
+        const gifs = [
+            'https://tenor.com/embed/1790956462399038439',
+            'https://tenor.com/embed/17351129372538383681',
+            'https://tenor.com/embed/15578426',
+            'https://tenor.com/embed/11410215819709098761',
+            'https://tenor.com/embed/1824454323751468012'
+        ];
+        const textos = [
+            'Olaaaa mi niña <span class="emoji">💜😍</span>',
+            'Como tas?, espero que tes bien jijii',
+            'Te estaño muchote',
+            'Buenas noches amor, ya toy muy canshadito, me lelen los sojos trataré de mimir niña',
+            'Teamito mi niña hermosa <span class="emoji">💜😍</span>' // Texto añadido para el nuevo GIF
+        ];
+        let indiceActual = 0;
+
+        function cambiarContenido() {
+            indiceActual = (indiceActual + 1) % gifs.length;
+            document.getElementById('gif').src = gifs[indiceActual];
+            document.getElementById('texto').innerHTML = textos[indiceActual]; // Utiliza innerHTML para permitir etiquetas HTML
+        }
+    </script>
+
+    <script type="text/javascript" async src="https://tenor.com/embed.js"></script>
+
+</body>
+</html>
